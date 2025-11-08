@@ -1,0 +1,30 @@
+services:
+  # Frontend Web Service
+  - type: web
+    name: loom-frontend
+    runtime: node
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      # URL da API do Backend (obrigatório)
+      - key: NEXT_PUBLIC_BACKEND_API_URL
+        value: https://loom-backend-api.onrender.com
+      
+      # Endereço do Smart Contract
+      - key: NEXT_PUBLIC_CONTRACT_ADDRESS
+        value: 0xF3fB58A4083C620c33ea48cD7E597eb18609F992
+      
+      # URL do RPC
+      - key: NEXT_PUBLIC_RPC_URL
+        value: https://sepolia-rpc.scroll.io
+      
+      # Chain ID
+      - key: NEXT_PUBLIC_CHAIN_ID
+        value: "534351"
+      
+      # Ambiente
+      - key: NODE_ENV
+        value: production

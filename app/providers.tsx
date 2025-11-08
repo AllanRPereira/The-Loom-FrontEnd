@@ -14,14 +14,10 @@ import {
 } from '@rainbow-me/rainbowkit/wallets'; // Importar as carteiras que queremos adicionar
 import { WagmiProvider } from 'wagmi';
 import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
+  baseSepolia,
   base,
+  mainnet,
   sepolia,
-  scrollSepolia, // Rede da Scroll!
-  baseSepolia
 } from '@wagmi/core/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
