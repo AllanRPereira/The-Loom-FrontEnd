@@ -1,0 +1,698 @@
+/* My Jobs/Projects Page - Design Fiel à Imagem */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.my-jobs-page {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #d4d4d4;
+  --border-color: #222222;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --text-dark: #000000;
+  --accent-green: #00ff00;
+  --sidebar-width: 224px;
+}
+
+.my-jobs-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout Principal */
+.my-jobs-container {
+  display: flex;
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Sidebar */
+.my-jobs-sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  position: fixed;
+  height: calc(100vh - 80px);
+  top: 80px;
+  left: calc((100vw - 1400px) / 2);
+}
+
+.sidebar-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  margin: 0 auto 3rem;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+}
+
+.sidebar-nav-item {
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  text-align: left;
+  display: block;
+}
+
+.sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav-item.active {
+  border-left: 3px solid var(--accent-green);
+  padding-left: calc(1rem - 3px);
+  font-weight: 500;
+}
+
+.sidebar-logout {
+  padding: 0 2.5rem;
+  margin-top: auto;
+}
+
+.logout-btn {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.logout-btn:hover {
+  opacity: 0.7;
+}
+
+/* Main Content */
+.my-jobs-main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 3rem 2rem 3rem 3rem;
+  max-width: calc(1400px - 224px);
+}
+
+.projects-header {
+  margin-bottom: 2rem;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.projects-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.projects-tabs {
+  display: flex;
+  gap: 2rem;
+  margin-right: 50px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: all 0.2s;
+  position: relative;
+  padding-right: 10px;
+}
+
+.tab-btn:hover {
+  opacity: 0.7;
+}
+
+.tab-btn.active {
+  font-weight: 500;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--text-primary);
+}
+
+.create-job-btn {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.create-job-btn:hover {
+  background: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--text-secondary);
+  transform: translateY(-4px);
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Responsividade */
+
+/* Tablet Large */
+@media (max-width: 1200px) {
+  .my-jobs-container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  .my-jobs-sidebar {
+    left: 1.5rem;
+  }
+
+  .my-jobs-main {
+    padding: 2.5rem 2rem;
+    max-width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .my-jobs-container {
+    padding: 0 1rem;
+  }
+
+  .my-jobs-sidebar {
+    width: 180px;
+    left: 1rem;
+  }
+
+  .my-jobs-main {
+    margin-left: 180px;
+    padding: 2rem 1.5rem;
+  }
+
+  .sidebar-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .projects-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .projects-tabs {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .my-jobs-sidebar {
+    position: fixed;
+    left: -100%;
+    width: 240px;
+    height: 100vh;
+    top: 0;
+    z-index: 1000;
+    transition: left 0.3s;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .my-jobs-sidebar.open {
+    left: 0;
+  }
+
+  .my-jobs-main {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+
+  .projects-title {
+    font-size: 1.75rem;
+  }
+
+  .projects-tabs {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    font-size: 0.9rem;
+  }
+
+  .create-job-btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sidebar-nav {
+    padding: 0 1rem;
+  }
+
+  .sidebar-logout {
+    padding: 0 2rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .my-jobs-main {
+    padding: 1rem;
+  }
+
+  .projects-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .projects-controls {
+    gap: 1rem;
+  }
+
+  .tab-btn {
+    font-size: 0.85rem;
+  }
+
+  .create-job-btn {
+    font-size: 0.9rem;
+    padding: 0.65rem 1.25rem;
+  }
+
+  .project-card-title {
+    font-size: 1.1rem;
+  }
+
+  .project-info {
+    padding: 1.25rem;
+  }
+}
+
+/* Overlay para mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .sidebar-overlay.open {
+    display: block;
+  }
+}
+
+/* Empty state: no projects found */
+.no-projects-cta {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-primary);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px;
+  grid-column: 1 / -1; /* occupy full width of the grid */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.no-projects-cta h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.no-projects-cta p {
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+}
+
+.no-projects-cta .create-job-btn {
+  margin-top: 12px;
+  padding: 0.6rem 1.25rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .no-projects-cta { padding: 32px; }
+  .no-projects-cta h3 { font-size: 1.35rem; }
+}
+
+@media (max-width: 480px) {
+  .no-projects-cta { padding: 20px; }
+  .no-projects-cta p { font-size: 0.95rem; }
+}
+
+/* Menu Toggle Button (Mobile) */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.modal-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-section {
+  margin-bottom: 1.5rem;
+}
+
+.modal-section:last-child {
+  margin-bottom: 0;
+}
+
+.modal-section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.modal-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.modal-link {
+  color: #4a9eff;
+  text-decoration: none;
+  word-break: break-all;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.modal-link:hover {
+  color: #6bb3ff;
+  text-decoration: underline;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #2a2a2a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4a9eff, #00d4ff);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Requirements Tags */
+.requirements-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.req-tag {
+  background: #2a2a2a;
+  color: var(--text-primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border: 1px solid #444;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #333;
+  justify-content: flex-end;
+}
+
+.btn-delete-project {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-delete-project:hover:not(:disabled) {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.btn-delete-project:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-close-modal {
+  background: #2a2a2a;
+  color: var(--text-primary);
+  border: 1px solid #444;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-close-modal:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .modal-content {
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 1rem 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .btn-delete-project,
+  .btn-close-modal {
+    width: 100%;
+  }
+}
