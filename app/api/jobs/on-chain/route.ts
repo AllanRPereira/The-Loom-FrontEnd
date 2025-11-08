@@ -5,7 +5,7 @@ import { JobManager_ABI, JobManager_Address } from '../../../../lib/constants';
 
 export async function GET() {
   try {
-    const provider = new ethers.JsonRpcProvider();
+    const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
     const contract = new ethers.Contract(JobManager_Address, JobManager_ABI, provider);
 
     const jobCounter = await contract.s_jobCounter();
